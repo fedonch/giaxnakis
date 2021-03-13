@@ -4,14 +4,17 @@ import java.util.Date ;
 public class Rantevou {
 
 	private int KAR;
-	private Date time;
+	private String day;
+	private String time;
+	
 	private Asfalismenos asfalismenos;
 	private EmboliastikoKentro kentro;
 	private Doctor doctor;
 	
-	public Rantevou(int KAR,Date time,Asfalismenos asfalismenos,
+	public Rantevou(int KAR,String day,String time,Asfalismenos asfalismenos,
 			EmboliastikoKentro kentro,Doctor doctor) {
 		this.KAR=KAR;
+		this.day=day;
 		this.time=time;
 		this.asfalismenos=asfalismenos;
 		this.kentro =kentro;
@@ -23,7 +26,11 @@ public class Rantevou {
 		return KAR;
 	}
 	
-	public Date getTime() {
+	public String getDay() {
+		return day;
+	}
+	
+	public String getTime() {
 		return time;
 	}
 	
@@ -38,4 +45,6 @@ public class Rantevou {
 	public Doctor getDoctor() {
 		return doctor;
 	}
+
+	
 }

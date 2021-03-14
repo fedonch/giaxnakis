@@ -10,7 +10,6 @@ public class Asfalismenos {
 		this.amka=amka;
 		this.name=name;
 		this.city=city;
-		
 	}
 	
 	public int getAmka() {

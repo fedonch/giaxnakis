@@ -22,7 +22,6 @@ public class Rantevou {
 		
 	}
 	
-	
 	public int getKar() {
 		return KAR;
 	}

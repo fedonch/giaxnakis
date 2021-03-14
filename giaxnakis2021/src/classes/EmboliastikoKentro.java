@@ -29,7 +29,6 @@ public class EmboliastikoKentro {
 		}			
 	}
 
-	
 	public int getCode() {
 		return code;
 	}
@@ -51,7 +50,6 @@ public class EmboliastikoKentro {
 			catalogue.add(doc);
 			doctorReservation.put(doc,0);
 		}
-		
 	}
 	
 	public void showFreeDates() {
@@ -77,7 +75,6 @@ public class EmboliastikoKentro {
 			}
 		}
 		return less;
-		
 	}
 	
 	public boolean doctorHasRantevou(ArrayList <Rantevou> rant , Doctor doc) {
@@ -91,8 +88,6 @@ public class EmboliastikoKentro {
 
 	public void putRantevou(String day,String time, Rantevou rantevou) {
 		calendar.get(day).get(time).add(rantevou);
-		doctorReservation.put(rantevou.getDoctor(), //doctorReservation.get(rantevou.getDoctor()) + 1);
-				2);	
+		doctorReservation.put(rantevou.getDoctor(), doctorReservation.get(rantevou.getDoctor()) + 1);
 	}
-	
 }

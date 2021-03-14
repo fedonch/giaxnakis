@@ -19,6 +19,7 @@ public class Rantevou {
 		this.asfalismenos=asfalismenos;
 		this.kentro =kentro;
 		this.doctor=doctor;
+		
 	}
 	
 	

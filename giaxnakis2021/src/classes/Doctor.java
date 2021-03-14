@@ -12,9 +12,7 @@ public class Doctor {
 		this.AM=AM;
 		this.name=name;
 	}
-	public Doctor() {
-		
-	}
+	public Doctor() {}
 	
 	public int getAM() {
 		return AM;

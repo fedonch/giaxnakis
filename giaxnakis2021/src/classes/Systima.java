@@ -42,11 +42,9 @@ public class Systima {
 	}
 	
 	public boolean checkUnique(int am) {
-		
 		if(olaTaAMDoctor.contains(am)) {
 			return false;
 		}
-		
 		return true;
 	}
 	
@@ -60,7 +58,6 @@ public class Systima {
 	
 	public static Systima getInstance() {
 		if (systima == null) {
-			
 			systima = new Systima();
 		}
 		return systima;

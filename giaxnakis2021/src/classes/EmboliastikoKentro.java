@@ -47,8 +47,11 @@ public class EmboliastikoKentro {
 	}
 
 	public void addDoctor(Doctor doc) {
-		catalogue.add(doc);
-		doctorReservation.put(doc,0);
+		if (catalogue.size()<5) {
+			catalogue.add(doc);
+			doctorReservation.put(doc,0);
+		}
+		
 	}
 	
 	public void showFreeDates() {
@@ -68,34 +71,27 @@ public class EmboliastikoKentro {
 		Doctor less =new Doctor();
 		for(Map.Entry<Doctor, Integer> entry : doctorReservation.entrySet()) {
 			if (!doctorHasRantevou(thisDayTime,entry.getKey())) {
-				if (entry.getValue()<min) {
-					less = entry.getKey();
-					
+				if (doctorReservation.get(entry.getKey())<min) {
+					less = entry.getKey();	
 				}
 			}
-			  
-			
 		}
 		return less;
 	}
 	
-
 	public boolean doctorHasRantevou(ArrayList <Rantevou> rant , Doctor doc) {
 		for (Rantevou rantevou : rant) {
 			if(rantevou.getDoctor().equals(doc)) {
 				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
-	
 	public void putRantevou(String day,String time, Rantevou rantevou) {
 		calendar.get(day).get(time).add(rantevou);
-		doctorReservation.put(rantevou.getDoctor(), doctorReservation.get(rantevou.getDoctor()) + 1);
-		
-		
+		doctorReservation.put(rantevou.getDoctor(), //doctorReservation.get(rantevou.getDoctor()) + 1);
+				2);	
 	}
-	
 	
 }

@@ -13,16 +13,13 @@ public class Asfalismenos {
 		
 	}
 	
-	
 	public int getAmka() {
 		return amka;
 	}
 	
-	
 	public String getName() {
 		return name;
 	}
-	
 	
 	public String getCity() {
 		return city;

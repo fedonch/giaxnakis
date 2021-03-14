@@ -65,7 +65,7 @@ public class EmboliastikoKentro {
 		}	
 	}
 	
-	public Doctor findDocWithLessReser(String day ,String time) {
+	public Doctor findDocWithLessReser(String day ,String time) { // 2check
 		int min=40;
 		ArrayList <Rantevou> thisDayTime =calendar.get(day).get(time);
 		Doctor less =new Doctor();

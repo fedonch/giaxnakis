@@ -26,8 +26,7 @@ public class Main {
         while(true) {
         	showChoices();
         	choice = br.readLine();
-        	switch(choice) 
-        	{
+        	switch(choice) {
         		case "1":
         			insertAsfalismeno();
         			break;

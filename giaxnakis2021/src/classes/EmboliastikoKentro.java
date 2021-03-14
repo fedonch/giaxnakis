@@ -77,6 +77,7 @@ public class EmboliastikoKentro {
 			}
 		}
 		return less;
+		
 	}
 	
 	public boolean doctorHasRantevou(ArrayList <Rantevou> rant , Doctor doc) {

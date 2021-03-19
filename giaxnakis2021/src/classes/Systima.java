@@ -17,6 +17,7 @@ public class Systima {
 	private int duration ;
 	private ArrayList<Rantevou> olaTaRantevou= new ArrayList<Rantevou>();
 	private ArrayList<Integer> olaTaAMDoctor =new ArrayList<Integer>();
+	
 	private static Systima systima;
 	
 	private HashMap<Integer, Asfalismenos> asfalismenoi = new HashMap<Integer, Asfalismenos>();
@@ -39,6 +40,7 @@ public class Systima {
 	public HashMap<String, EmboliastikoKentro> getKentra(){
 		return kentra;
 	}
+	
 	
 	
 	public String getName() {
@@ -109,6 +111,8 @@ public class Systima {
     		if (!kentra.containsKey(city)) {
     			kentra.put(city,new EmboliastikoKentro(code,name,city));
     		
+    		}else {
+    			System.out.println("This city has already an EK");
     		}
     	}else {
     		System.out.println("You've reached maximum capacity");
@@ -129,8 +133,8 @@ public class Systima {
     	addUniqueAM(am);
     	System.out.println("Enter NAME:");
     	String name = br.readLine();
-    	System.out.println("emboliastiko kentro credentials");	
-    	System.out.println("Enter CITY:");
+    	System.out.println("emboliastiko kentro credentials ");	
+    	System.out.println("Enter CITY (caps) :");
     	String city = br.readLine();
     	
     	
@@ -140,6 +144,8 @@ public class Systima {
     		}else {
         		System.out.println("You've reached maximum capacity of doctors");
         	}
+    	}else {
+    		System.out.println("There is no EK in this city");
     	}
     	
     	
@@ -155,8 +161,7 @@ public class Systima {
     	
     	Asfalismenos tempAsfal = asfalismenoi.get(amka);
     	if (tempAsfal ==null) {
-    		System.out.println("There is no insured person with this AMKA \n"
-    				+ "you can try inserting one");
+    		System.out.println("There is no insured person with this AMKA ");	
     		return;
     	}
     	String city=asfalismenoi.get(amka).getCity();
@@ -167,6 +172,10 @@ public class Systima {
     	String day = br.readLine();
     	System.out.println("Please give me time");
     	String time = br.readLine();
+    	if (!tempKentro.checkCredentials(day,time)) {
+    		
+    		return;
+    	}
     	Doctor best = tempKentro.findDocWithLessReser(day,time);
     	uniqueCode+=1;
     	Rantevou tempRantevou =new Rantevou(uniqueCode,day,time,tempAsfal,tempKentro,best);
@@ -232,18 +241,11 @@ public class Systima {
 	 
 	public void showRantevousInfo(ArrayList<Rantevou> rant) {
 		for (Rantevou tempRantevou :rant) {
-			System.out.println(tempRantevou.getKar());
-			System.out.println(tempRantevou.getDay() +" "+tempRantevou.getTime());
-			System.out.println(tempRantevou.getAsfalismeno().getAmka());
-			System.out.println(tempRantevou.getDoctor().getAM());
-			System.out.println(tempRantevou.getKentro().getCode());
-		}
-
-			
+			showRantevouInfo(tempRantevou);	
+		}	
 	}
 	
 	public void showRantevouInfo(Rantevou tempRantevou) {
-	
 		System.out.println(tempRantevou.getKar());
 		System.out.println(tempRantevou.getDay() +" "+tempRantevou.getTime());
 		System.out.println(tempRantevou.getAsfalismeno().getAmka());

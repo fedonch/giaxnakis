@@ -69,6 +69,11 @@ public class Main {
         Doctor doc1 =  new Doctor(111111,"Doctor 1");
         Doctor doc2 = new Doctor(222222,"Doctor 2");
         Doctor doc3 =new Doctor(333333,"Doctor 3");
+        
+        systima.addUniqueAM(111111);
+        systima.addUniqueAM(2*111111);
+        systima.addUniqueAM(3*111111);
+        
         systima.getKentra().get("XANIA").addDoctor(doc1);
         systima.getKentra().get("XANIA").addDoctor(doc2);
         systima.getKentra().get("XANIA").addDoctor(doc3);

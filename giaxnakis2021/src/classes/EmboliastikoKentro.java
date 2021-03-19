@@ -54,12 +54,16 @@ public class EmboliastikoKentro {
 		return this.catalogue;
 	}
 
+	// elegxw kai bazw giatro sti lista giatrwn tou emboliastikou kentrou
+	
 	public void addDoctor(Doctor doc) {
 		if (catalogue.size()<5) {
 			catalogue.add(doc);
 			doctorReservation.put(doc,0);
 		}
 	}
+	
+	//tipwsi eleu8erwn imerominiwn gia kleisimo rantevou
 	
 	public void showFreeDates() {
 		for (int i =0;i<Systima.getInstance().getDuration();i++) {
@@ -71,6 +75,10 @@ public class EmboliastikoKentro {
 			System.out.println();
 		}	
 	}
+	
+	// psaxnww gia ton dia8esimo giatro 
+	// diladi auton pou den exei tin sigkekrimeni wra kai mera rantevou 
+	// kai exei ta ligotera rantevou ekeini tin periodo
 	
 	public Doctor findDocWithLessReser(String day ,String time) { // 2check
 		int min=40;
@@ -86,6 +94,9 @@ public class EmboliastikoKentro {
 		}
 		return less;
 	}
+	
+	// elegxw an mporei na kleisei rantevou o xristis
+	// sti periptwsi pou ta stoixei amou edwse den einai swsta 
 	
 	public boolean checkCredentials(String day,String time) {
 		if(!days.contains(day)) {
@@ -105,6 +116,8 @@ public class EmboliastikoKentro {
 		}
 		
 	}
+	
+	// elegxw an enas giatros exei rantevou 
 	
 	public boolean doctorHasRantevou(ArrayList <Rantevou> rant , Doctor doc) {
 		for (Rantevou rantevou : rant) {

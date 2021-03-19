@@ -74,6 +74,12 @@ public class Systima {
 		olaTaAMDoctor.add(am);
 	}
 
+	// function gia na eggrafw sto systima ena kainourgio asfalismeno
+	// zitaw na mou dwsei ena ari8mo amka elegxw gia na einai 10 digits
+	// mou dinei onoma kai city kai ton bazw sto systima 
+	// ama exw ftasei tous 100 asfalismenous tote den ton kanw eggrafi 
+	
+	
 	public void insertAsfalismeno() throws IOException{
     	if (asfalismenoi.size()<100) {
     		int amka=0;
@@ -94,6 +100,11 @@ public class Systima {
     	}
     }
 	
+	
+	// function gia na eggrafw sto systima ena kainourgio emboliastiko kentro 
+	// zitaw na mou dwsei ena code  elegxw gia na einai 5 digits
+	// sa kleidi exw epile3ei to city giati stin ekfwnisi leei na einai monadiko
+	// ama exw ftasei ta 10 kentra tote den to kanw eggrafi 
 	public void insertEmbKentro() throws IOException{
     	if (kentra.size()<10) {
     		int code=0;
@@ -118,6 +129,12 @@ public class Systima {
     		System.out.println("You've reached maximum capacity");
     	}
     }
+	
+	
+	// function gia na eggrafw sto systima ena kainourgio giatro  
+	// zitaw na mou dwsei ena AM  elegxw gia na einai monadiko
+	// zitaw to emboliastiko kentro tou giatrou an denuparxei petaw la8os
+	// ama exw ftasei tous 5 giatrous sto emboliastiko kentro tote den ton bazw 
 	
 	public void insertDoctor() throws IOException{
     	
@@ -150,6 +167,14 @@ public class Systima {
     	
     	
     }	
+	
+	// function gia na ftiaxw kainoyrgio rantevou
+	// zitaw to AMKA tou asfalimenou prepei na eina iidi sto systima alliws petaw minima\
+	// emfanizw tis eleu8eres imerominies sto emboliastiko kentro tis polis tou asfalismenou
+	// zitaw na mou dwsei mia apo tis parapanw imerominies 
+	// ama mou dwsei mera i wra pou den einai dia8esimi i den uparxei petaw minima
+	// alliws ftiaxnw to rantevou
+	
 	
 	public void toReserve() throws IOException{
     	
@@ -184,6 +209,8 @@ public class Systima {
     	showRantevouInfo(tempRantevou);
     }
 	
+	// function gia na kanei print ena rantevou
+	
 	public void searchAndPrintRantevou() throws IOException {
 		ArrayList<Rantevou> rantevou=searchRantevou();
 	    if (rantevou==null) {
@@ -193,6 +220,11 @@ public class Systima {
 	    	
 	}
 	    
+	// function pou psaxnei gia rantevou me basi ena apo ta zitoumena AMKA,EK,AM
+	// o xristis prepei stin arxi na epile3ei me poio apo ta 3 stoixeia 8elei na ginei i anazitisi
+	// epistrefei mia lista apo rantevou 
+	// gia opoiodipote la8os petaw minima
+	
 	public ArrayList<Rantevou> searchRantevou() throws IOException{
 	    ArrayList<Rantevou> temp =new ArrayList<Rantevou>();
 		System.out.println("Type selected search method (AMKA,EK,AM)  ");
@@ -235,24 +267,31 @@ public class Systima {
 			if (temp.isEmpty()) {
 				System.out.println("No randevouz found for this AM");
 			}
+		}else {
+			System.out.println("You haven't given me an available search method");
 		}
 		return temp;  	
 	}
 	 
+	// diaxeirisi listas gia ektipwsi twn rantevou
+	
 	public void showRantevousInfo(ArrayList<Rantevou> rant) {
 		for (Rantevou tempRantevou :rant) {
 			showRantevouInfo(tempRantevou);	
 		}	
 	}
 	
+	// function gia na tipwnw ta stoixeia gia to rantevou
+	
 	public void showRantevouInfo(Rantevou tempRantevou) {
-		System.out.println(tempRantevou.getKar());
-		System.out.println(tempRantevou.getDay() +" "+tempRantevou.getTime());
-		System.out.println(tempRantevou.getAsfalismeno().getAmka());
-		System.out.println(tempRantevou.getDoctor().getAM());
-		System.out.println(tempRantevou.getKentro().getCode());
+		System.out.println("Rantevou Unique Code: " + tempRantevou.getKar());
+		System.out.println("Day And Time: " +tempRantevou.getDay() +" "+tempRantevou.getTime());
+		System.out.println("Insured Person's AMKA: " +tempRantevou.getAsfalismeno().getAmka());
+		System.out.println("Doctor's AM: " +tempRantevou.getDoctor().getAM());
+		System.out.println("Center's City: " +tempRantevou.getKentro().getCity());
 	}
 	
+	// singleton
 	public static Systima getInstance() {
 		if (systima == null) {
 			systima = new Systima();

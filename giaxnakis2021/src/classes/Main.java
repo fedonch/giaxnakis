@@ -11,6 +11,9 @@ public class Main {
 	
 	static Systima systima =Systima.getInstance() ;
 	
+	
+	// i main einai ipeu8ini gia na pernei tis epiloges tou xristi kai na ektelei
+	// tis katalliles energeies
 	public static void main(String[] args) throws IOException {
         System.out.println("Welcome...");
         init_system();
@@ -44,6 +47,8 @@ public class Main {
         } 	
 	}
     
+	
+	// epiloges pou 8a emfanistoun stin konsola
 	static void showChoices() {
 		System.out.println("\n"
 				+"Press 1 to insert Insured Person \n"
@@ -54,6 +59,7 @@ public class Main {
 				+ "Press 6 to exit program\n");
 	}
    
+	// arxikopoiisi sistimatos me ti arxikes eggrafes se docs,randevou ktl
     static void init_system() {
     	
     	for (int i=0;i<5;i++){

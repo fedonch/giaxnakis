@@ -29,7 +29,7 @@ public class Systima {
 		this.URL ="https://www.moh.gov.gr/articles/health/dieythynsh-dhmosias-ygieinhs/"
 				+ "emboliasmoi/ethniko-programma-emboliasmwn-epe-enhlikwn/"
 				+ "7968-ethniko-programma-emboliasmwn-enhlikwn-2020-2021";
-		this.duration = 7;
+		this.duration = 20;
 		
 	}
 	
@@ -84,7 +84,7 @@ public class Systima {
     		System.out.println("asfalizomenos credentials");
     		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     		while(String.valueOf(amka).length()!=10) {
-    			System.out.println("Enter AMKA (10_digit)");
+    			System.out.println("Enter AMKA (int 10_digit)");
     			amka = Integer.parseInt(br.readLine());
     		}
     		System.out.println("Enter NAME:");
@@ -109,7 +109,7 @@ public class Systima {
     		System.out.println("emboliastiko kentro credentials");	
     		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     		while(String.valueOf(code).length()!=5) {
-    			System.out.println("Enter CODE (5_digit)");
+    			System.out.println("Enter CODE (int 5_digit)");
     			code = Integer.parseInt(br.readLine());
     		}
     		System.out.println("Enter NAME:");
@@ -138,7 +138,7 @@ public class Systima {
     	
     	System.out.println("doctor credentials");	
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    	System.out.println("Enter AM");
+    	System.out.println("Enter AM (int)");
     	int am = Integer.parseInt(br.readLine());
     	while (!checkUnique(am)){
     		System.out.println("Pls enter unique AM");
@@ -179,7 +179,7 @@ public class Systima {
     	
     	System.out.println("asfalismenos credentials");	
     	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    	System.out.println("Enter AMKA");
+    	System.out.println("Enter AMKA (int)");
     	int amka = Integer.parseInt(br.readLine());
     	
     	Asfalismenos tempAsfal = asfalismenoi.get(amka);
@@ -191,9 +191,9 @@ public class Systima {
     	EmboliastikoKentro tempKentro = kentra.get(city);
     	tempKentro.showFreeDates();
     	
-    	System.out.println("Please give me day");
+    	System.out.println("Please give me day (day-*) ");
     	String day = br.readLine();
-    	System.out.println("Please give me time");
+    	System.out.println("Please give me time (**:**) ");
     	String time = br.readLine();
     	if (!tempKentro.checkCredentials(day,time)) {
     		
@@ -229,7 +229,7 @@ public class Systima {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String method = br.readLine();
 		if (method.equalsIgnoreCase("AMKA")) {
-			System.out.println("Enter AMKA");
+			System.out.println("Enter AMKA (int)");
 			int key = Integer.parseInt(br.readLine());
 			for (Rantevou tempRantevou : systima.getRantevousAll()) {
 				if(tempRantevou.getAsfalismeno().getAmka()==key) {
@@ -242,7 +242,7 @@ public class Systima {
 	    		
 		}
 		else if(method.equalsIgnoreCase("EK")){
-			System.out.println("Enter EK");
+			System.out.println("Enter EK (city)");
 			int key = Integer.parseInt(br.readLine());
 			
 			for (Rantevou tempRantevou : systima.getRantevousAll()) {
@@ -255,7 +255,7 @@ public class Systima {
 			}
 		}
 		else if(method.equalsIgnoreCase("AM")){
-			System.out.println("Enter AM");
+			System.out.println("Enter AM (int) ");
 			int key = Integer.parseInt(br.readLine());
 			for (Rantevou tempRantevou : systima.getRantevousAll()) {
 				if(tempRantevou.getDoctor().getAM()==key) {
@@ -286,7 +286,8 @@ public class Systima {
 		System.out.println("Day And Time: " +tempRantevou.getDay() +" "+tempRantevou.getTime());
 		System.out.println("Insured Person's AMKA: " +tempRantevou.getAsfalismeno().getAmka());
 		System.out.println("Doctor's AM: " +tempRantevou.getDoctor().getAM());
-		System.out.println("Center's City: " +tempRantevou.getKentro().getCity());
+		System.out.println("Center's City: " +tempRantevou.getKentro().getCity() +"\n");
+		
 	}
 	
 	// singleton

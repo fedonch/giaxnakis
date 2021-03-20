@@ -11,7 +11,7 @@ public class EmboliastikoKentro {
 	private String city;
 	private ArrayList<Doctor> catalogue =new ArrayList<Doctor> ();
 	private HashMap<String ,HashMap<String,ArrayList<Rantevou>>> calendar=new HashMap<String ,HashMap<String,ArrayList<Rantevou>>>();
-	private HashMap<String,ArrayList<Rantevou>> inner= new HashMap<String,ArrayList<Rantevou>>();
+	//private HashMap<String,ArrayList<Rantevou>> inner = new HashMap<String,ArrayList<Rantevou>>();  // allagi
 	private ArrayList<String> days =new ArrayList<String>();
 	private ArrayList<String> times =new ArrayList<String>();
 	private String time[]= {"9:00","9:30","10:00","10:30"};
@@ -30,12 +30,15 @@ public class EmboliastikoKentro {
 			days.add("day-"+String.valueOf(i+1));
 		}
 		
-		for(int j=0;j<4;j++) {
-			inner.put(time[j],new ArrayList<Rantevou>());
-		}
-		for (int i =0;i<Systima.getInstance().getDuration();i++) {			
+		// allagi
+		for (int i =0;i<Systima.getInstance().getDuration();i++) {	
+			HashMap<String,ArrayList<Rantevou>> inner= new HashMap<String,ArrayList<Rantevou>>();
+			for(int j=0;j<4;j++) {
+				inner.put(time[j],new ArrayList<Rantevou>());
+			}
 			calendar.put(days.get(i), inner);
-		}			
+		}		
+		// allagi
 	}
 
 	public int getCode() {
@@ -68,7 +71,7 @@ public class EmboliastikoKentro {
 	public void showFreeDates() {
 		for (int i =0;i<Systima.getInstance().getDuration();i++) {
 			for(int j=0;j<4;j++) {
-				if (calendar.get(days.get(i)).get(time[j]).size()<5) {
+				if (calendar.get(days.get(i)).get(times.get(j)).size()<catalogue.size()) {  // allagi
 					System.out.print(days.get(i) +" "+ time[j] + " ");
 				}
 			}
@@ -108,7 +111,7 @@ public class EmboliastikoKentro {
 			System.out.println("There is no such time available");
 			return false;
 		}
-		else if (calendar.get(day).get(time).size()==5) {
+		else if (calendar.get(day).get(time).size()==catalogue.size()) { // allagi
 			System.out.println("This day and time we are full");
 			return false;
 		}

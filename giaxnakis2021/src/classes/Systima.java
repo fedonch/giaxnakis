@@ -41,8 +41,6 @@ public class Systima {
 		return kentra;
 	}
 	
-	
-	
 	public String getName() {
 		return name;
 	}

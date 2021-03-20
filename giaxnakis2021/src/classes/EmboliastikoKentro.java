@@ -2,7 +2,6 @@ package classes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class EmboliastikoKentro {
@@ -30,6 +29,7 @@ public class EmboliastikoKentro {
 		for (int i =0;i<Systima.getInstance().getDuration();i++) {			
 			days.add("day-"+String.valueOf(i+1));
 		}
+		
 		for(int j=0;j<4;j++) {
 			inner.put(time[j],new ArrayList<Rantevou>());
 		}
@@ -51,7 +51,7 @@ public class EmboliastikoKentro {
 	}
 	
 	public ArrayList<Doctor> getCatalogue() {
-		return this.catalogue;
+		return catalogue;
 	}
 
 	// elegxw kai bazw giatro sti lista giatrwn tou emboliastikou kentrou
@@ -81,13 +81,14 @@ public class EmboliastikoKentro {
 	// kai exei ta ligotera rantevou ekeini tin periodo
 	
 	public Doctor findDocWithLessReser(String day ,String time) { // 2check
-		int min=40;
+		int min= 4*Systima.getInstance().getDuration() +1;
 		
 		ArrayList <Rantevou> thisDayTime =calendar.get(day).get(time);
 		Doctor less =new Doctor();
 		for(Map.Entry<Doctor, Integer> entry : doctorReservation.entrySet()) {
 			if (!doctorHasRantevou(thisDayTime,entry.getKey())) {
 				if (doctorReservation.get(entry.getKey())<min) {
+					min=doctorReservation.get(entry.getKey());
 					less = entry.getKey();	
 				}
 			}

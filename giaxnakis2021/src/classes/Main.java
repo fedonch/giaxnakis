@@ -1,11 +1,8 @@
 package classes;
 
-import java.util.HashMap;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-
 
 public class Main {
 	
@@ -86,6 +83,7 @@ public class Main {
         
         Doctor doc4 =new Doctor(444444,"Doctor 4");
         Doctor doc5 =new Doctor(555555,"Doctor 5");
+        
         systima.getKentra().get("RETHYMNO").addDoctor(doc4);
         systima.getKentra().get("RETHYMNO").addDoctor(doc5);
         
@@ -103,6 +101,7 @@ public class Main {
     	
     	tempRantevou =new Rantevou(23,"day-1","10:30",systima.getAsfalismenoi().get(4*11111111),systima.getKentra().get("XANIA"),doc3);
     	systima.getKentra().get("XANIA").putRantevou("day-1","10:30",tempRantevou);
+    	
     	systima.addRantevou(tempRantevou);
     	
     	tempRantevou =new Rantevou(24,"day-2","9:30",systima.getAsfalismenoi().get(5*11111111),systima.getKentra().get("XANIA"),doc1);
